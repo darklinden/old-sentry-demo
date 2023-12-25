@@ -1,0 +1,29 @@
+version: "3"
+services:
+
+  sentry-server:
+    container_name: "sentry-server"
+    image: slafs/sentry:6.4
+    restart: always
+    environment:
+      - SECRET_KEY=xxx
+      - SENTRY_URL_PREFIX=http://127.0.0.1:9000
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./sentry:/data
+    networks:
+      sentry_net:
+        ipv4_address: 172.16.10.2
+    logging:
+      driver: "local"
+      options:
+          max-file: 5
+          max-size: 10m
+
+networks:
+  sentry_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.10.0/8

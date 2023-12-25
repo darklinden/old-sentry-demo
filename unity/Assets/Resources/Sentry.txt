@@ -1,0 +1,4 @@
+Dsn=http://b15feaf712a940d48e77824028101e90:3a4859ef5fed48f3ac083fc8c3a7ea7f@127.0.0.1:9000/2
+Pii=true
+Breadcrumb=true
+Debug=true
